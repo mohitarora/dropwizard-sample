@@ -79,7 +79,7 @@
                </dependency>
             </dependencies>
             <configuration>
-               <tag>v@{project.version}</tag>
+               <tagNameFormat>v@{project.version}</tagNameFormat>
                <pushChanges>false</pushChanges>
                <autoVersionSubmodules>true</autoVersionSubmodules>
                <localCheckout>true</localCheckout>
