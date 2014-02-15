@@ -79,8 +79,9 @@
                </dependency>
             </dependencies>
             <configuration>
-               <tagNameFormat>v@{project.version}</tagNameFormat>
+               <tag>v@{project.version}</tag>
                <pushChanges>false</pushChanges>
+               <autoVersionSubmodules>true</autoVersionSubmodules>
                <localCheckout>true</localCheckout>
             </configuration>
          </plugin>
