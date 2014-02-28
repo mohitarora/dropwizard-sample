@@ -12,3 +12,13 @@ logging:
     archivedFileCount: 5
     # The timezone used to format dates. HINT: USE THE DEFAULT, UTC.
     timeZone: UTC
+  console:
+    # If true, write log statements to stdout.
+    enabled: false
+    # Do not display log statements below this threshold to stdout.
+    threshold: ALL
+# HTTP request log settings.
+http:
+  requestLog:
+    console:
+      enabled: false
