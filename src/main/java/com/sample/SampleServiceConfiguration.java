@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yammer.dropwizard.config.Configuration;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class SampleServiceConfiguration extends Configuration
-{
+public class SampleServiceConfiguration extends Configuration {
     @NotEmpty
     @JsonProperty
     private String template;
@@ -14,13 +13,11 @@ public class SampleServiceConfiguration extends Configuration
     @JsonProperty
     private String defaultName = "Stranger";
 
-    public String getTemplate()
-    {
+    public String getTemplate() {
         return template;
     }
 
-    public String getDefaultName()
-    {
+    public String getDefaultName() {
         return defaultName;
     }
 }

@@ -6,17 +6,15 @@ import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 
-public class SampleService extends Service<SampleServiceConfiguration>
-{
+public class SampleService extends Service<SampleServiceConfiguration> {
+
     /**
      * Service Entry Point
      *
      * @param args
-     *
      * @throws Exception
      */
-    public static void main(String... args) throws Exception
-    {
+    public static void main(String... args) throws Exception {
         new SampleService().run(args);
     }
 
@@ -26,14 +24,12 @@ public class SampleService extends Service<SampleServiceConfiguration>
      * @param bootstrap
      */
     @Override
-    public void initialize(Bootstrap<SampleServiceConfiguration> bootstrap)
-    {
+    public void initialize(Bootstrap<SampleServiceConfiguration> bootstrap) {
         bootstrap.setName("sample");
     }
 
     @Override
-    public void run(SampleServiceConfiguration configuration, Environment environment) throws Exception
-    {
+    public void run(SampleServiceConfiguration configuration, Environment environment) throws Exception {
         final String template = configuration.getTemplate();
         final String defaultName = configuration.getDefaultName();
         environment.addResource(new SampleResource(template, defaultName));
