@@ -1,24 +1,2 @@
 template: Hello, %s!
 defaultName: Stranger
-logging:
-  file:
-    enabled: true
-    # Do not write log statements below this threshold to the file.
-    threshold: ALL
-    # The file to which current statements will be logged.
-    currentLogFilename: /tmp/logs/example.log
-    archivedLogFilenamePattern: /tmp/logs/example-%d.log.gz
-    # The number of archived files to keep.
-    archivedFileCount: 5
-    # The timezone used to format dates. HINT: USE THE DEFAULT, UTC.
-    timeZone: UTC
-  console:
-    # If true, write log statements to stdout.
-    enabled: false
-    # Do not display log statements below this threshold to stdout.
-    threshold: ALL
-# HTTP request log settings.
-http:
-  requestLog:
-    console:
-      enabled: false
