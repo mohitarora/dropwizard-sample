@@ -1,19 +1,12 @@
 package com.sample.health;
 
-import com.yammer.metrics.core.HealthCheck;
+import com.codahale.metrics.health.HealthCheck;
 
 public class SampleHealthCheck extends HealthCheck {
 
     private final String template;
 
-    /**
-     * Create a new {@link com.yammer.metrics.core.HealthCheck} instance with the given name.
-     *
-     * @param template the name of the health check (and, ideally, the name of the underlying component the health check
-     *                 tests)
-     */
     public SampleHealthCheck(String template) {
-        super("template");
         this.template = template;
     }
 

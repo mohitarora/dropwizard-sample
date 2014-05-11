@@ -12,11 +12,15 @@
         <connection>scm:git:https://github.com/mohitarora/dropwizard-sample.git</connection>
     </scm>
 
+    <properties>
+        <dropwizard.version>0.7.0</dropwizard.version>
+    </properties>
+
     <dependencies>
         <dependency>
-            <groupId>com.yammer.dropwizard</groupId>
+            <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-core</artifactId>
-            <version>0.6.2</version>
+            <version>${dropwizard.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
