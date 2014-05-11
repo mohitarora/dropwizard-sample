@@ -3,7 +3,6 @@ package com.sample.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 import com.sample.api.Message;
-import com.sun.jersey.core.spi.factory.ResponseBuilderImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,9 +10,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Path("/sample")
@@ -37,12 +34,6 @@ public class SampleResource {
     public Message sayHello(
             @QueryParam("name")
             Optional<String> name) {
-        if (name.or(defaultName).equals("fail")) {
-            Response resp = new ResponseBuilderImpl().status(500).entity("Error Scenario").build();
-            throw new WebApplicationException(resp);
-        }
-        LOGGER.info("Everything looks good..responding sayHello to {}", name.or(defaultName));
-        LOGGER.info("Just Spitting some more logs");
         return new Message(counter.incrementAndGet(), String.format(template, name.or(defaultName)));
     }
 }

@@ -8,16 +8,14 @@ import io.dropwizard.setup.Environment;
 
 public class SampleService extends Application<SampleServiceConfiguration> {
 
-    /**
-     * Service Entry Point
-     *
-     * @param args
-     * @throws Exception
-     */
     public static void main(String... args) throws Exception {
         new SampleService().run(args);
     }
 
+    @Override
+    public String getName() {
+        return "hello-world";
+    }
 
     @Override
     public void run(SampleServiceConfiguration configuration, Environment environment) throws Exception {
@@ -28,11 +26,13 @@ public class SampleService extends Application<SampleServiceConfiguration> {
     }
 
     /**
-     * Configure aspects of the service required before the service is run
+     * Configure aspects of the service required before the service is run,
+     * like bundles, configuration source providers, etc.
      *
      * @param bootstrap
      */
     @Override
     public void initialize(Bootstrap<SampleServiceConfiguration> bootstrap) {
+        //Nothing to do
     }
 }

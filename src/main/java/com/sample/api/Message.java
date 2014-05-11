@@ -1,8 +1,12 @@
 package com.sample.api;
 
+import org.hibernate.validator.constraints.Length;
+
 public class Message {
+
     private final long id;
 
+    @Length(max = 3)
     private final String content;
 
     public Message(long id, String content) {
@@ -17,4 +21,5 @@ public class Message {
     public String getContent() {
         return content;
     }
+
 }
