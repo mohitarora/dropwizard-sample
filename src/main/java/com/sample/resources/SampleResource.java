@@ -3,6 +3,8 @@ package com.sample.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 import com.sample.api.Message;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,6 +16,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @Path("/sample")
 @Produces(MediaType.APPLICATION_JSON)
 public class SampleResource {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SampleResource.class);
 
     private final String template;
     private final String defaultName;
@@ -30,6 +34,8 @@ public class SampleResource {
     public Message sayHello(
             @QueryParam("name")
             Optional<String> name) {
-        return new Message(counter.incrementAndGet(), String.format(template, name.or(defaultName)));
+        long id = counter.incrementAndGet();
+        LOGGER.info("Everything looks good..responding sayHello to {} with counter", name.or(defaultName), id);
+        return new Message(id, String.format(template, name.or(defaultName)));
     }
 }
