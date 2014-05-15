@@ -35,7 +35,7 @@ public class SampleResource {
             @QueryParam("name")
             Optional<String> name) {
         long id = counter.incrementAndGet();
-        LOGGER.info("Everything looks good..responding sayHello to {} with counter", name.or(defaultName), id);
+        LOGGER.info("Everything looks good..responding sayHello to {} with counter {}", name.or(defaultName), id);
         return new Message(id, String.format(template, name.or(defaultName)));
     }
 }
